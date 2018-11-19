@@ -86,7 +86,7 @@ public dizerNome (): string{
 }
 public dizerCarroPreferido(): string{
 
-    return this.carroPreferido
+    return 'Carro preferido é: '+this.carroPreferido
 
 
 }
@@ -107,5 +107,5 @@ return this.carro
  
 }
 
-let pessoa = new Pessoa('Edilson','Nenhum','Fiat PUNTO')
-console.log(pessoa)
+
+/*-Criar Carros--*/
