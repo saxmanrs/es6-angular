@@ -1,111 +1,32 @@
-class Carro{
+import Carro from './Carro'
+import Pessoa from './Pessoa'
+import Concessionaria from './Concessionaria'
 
-    private modelo: string
-    private numeroDePortas:number
-    private velocidade:number = 0
+/* --- criar carros ---*/
+let carroA = new Carro('dodge journey', 4)
+let carroB = new Carro('veloster', 3)
+let carroC = new Carro('cerato', 4)
 
+/* --- montar a lista de carros da concessionaria ---*/
+let listaDeCarros: Carro[] = [carroA, carroB, carroC]
+
+let concessionaria = new Concessionaria('Av Paulista', listaDeCarros)
+
+/* --- exibir a lista de carros --- */
+//console.log(concessionaria.mostrarListaDeCarros())
+
+/* --- comprar o carro ---*/
+let cliente = new Pessoa('João', 'veloster')
+
+concessionaria.mostrarListaDeCarros().map((carro: Carro) => {
     
-    constructor(modelo:string,numeroDePortas:number){
-        this.modelo = modelo
-        this.numeroDePortas = numeroDePortas
+    if(carro['modelo'] == cliente.dizerCarroPreferido()) {
 
+        //compra o carro
+        cliente.comprarCarro(carro)
     }
+})
 
-    public acelerar(): void{
-        this.velocidade =  this.velocidade + 10 
-
-
-    }
-
-    public parar(): void{
-        this.velocidade = 0
+console.log(cliente.dizerCarroQueTem())
 
 
-    }
-    public velocidadeAtual(): number{
-
-        return this.velocidade
-
-    }
-
-
-}
-
-class Concessionaria{
-
-    private endereco:string
-    private listaDeCarros:any
-
-
-
-    public constructor(endereco:string,listaDeCarros:any)
-{
-
-        this.endereco = endereco
-        this.listaDeCarros = listaDeCarros
-
-
-}
-
-    public forneceEndereco():string{
-            return this.endereco
-
-    }
-
-    public mostrarListadeCarros():any{
-
-                return this.listaDeCarros
-
-        
-    }
-
-
-}
-
-class Pessoa{
-
-
-private nome: string
-private carro:any
-private carroPreferido:string
-
-
-constructor(nome:string,carro:any,carroPreferido:string){
-
-    this.carro = carro
-    this.carroPreferido = carroPreferido
-    this.nome = nome
-
-}
-
-
-public dizerNome (): string{
-
-    return this.nome
-
-}
-public dizerCarroPreferido(): string{
-
-    return 'Carro preferido é: '+this.carroPreferido
-
-
-}
-
-public comprarCarro(carro : any):void{
-
-    return this.carro
-
-}
-
-public dizerCarroQueTem(carro : any):any{
-
-return this.carro
-
-
-    }
-
- 
-}
-
-
-/*-Criar Carros--*/
